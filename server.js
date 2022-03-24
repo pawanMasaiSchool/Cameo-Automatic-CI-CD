@@ -21,6 +21,9 @@ app.use(express.json())
 app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
+app.get("/",(req,res)=>{
+  res.status(200).json({messege:"Welcome to cameo Backend"})
+})
 app.use('/',authRouter)
 app.use('/',celebRouter)
 app.use('/',userRouter)
