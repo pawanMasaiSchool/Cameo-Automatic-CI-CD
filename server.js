@@ -10,13 +10,14 @@ const userRouter= require('./routes/user.route')
 const orderRouter = require('./routes/order.routes')
 const adminRouter = require('./routes/admin.routes')
 
-app.use(
-    cors({
-      origin: "http://localhost:5000",
-      methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-      credentials: true
-    })
-  )
+app.use(cors());
+// app.use(
+//     cors({
+//       origin: "http://localhost:5000",
+//       methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//       credentials: true
+//     })
+//   )
 app.use(express.json())
 // app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 // app.use(passport.initialize());
@@ -26,8 +27,8 @@ app.get("/",(req,res)=>{
 })
 // app.use('/',authRouter)
 app.use('/',celebRouter)
-app.use('/',userRouter)
-app.use('/',orderRouter)
+// app.use('/',userRouter)
+// app.use('/',orderRouter)
 app.use('/',adminRouter);
 const start= async ()=>{
     await connect()
