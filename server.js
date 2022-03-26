@@ -22,9 +22,17 @@ app.use(express.json())
 // app.use(require('express-session')({ secret: 'keyboard cat', resave: true, saveUninitialized: true }));
 // app.use(passport.initialize());
 // app.use(passport.session());
+
 app.get("/",(req,res)=>{
-  res.status(200).json({messege:"Welcome to cameo Backend"})
+  try{
+
+    res.status(200).json({messege:"Welcome to cameo Backend"})
+  }
+  catch(err){
+    res.status(404).json({messege:"This Looks Little Wrong"})
+  }
 })
+
 // app.use('/',authRouter)
 app.use('/',celebRouter)
 // app.use('/',userRouter)
